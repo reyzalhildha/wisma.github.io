@@ -1,9 +1,9 @@
-<?php
-	if ( !isset($_SESSION['login']) ) {
-		echo "<script> alert('Anda Belum Login'); </script>";
-		echo "<script> window.location.href='index.php'; </script>";
-	}
-?>
+<!-- <?php
+	// if ( !isset($_SESSION['login']) ) {
+	// 	echo "<script> alert('Anda Belum Login'); </script>";
+	// 	echo "<script> window.location.href='index.php'; </script>";
+	// }
+?> -->
 <!DOCTYPE html>
 <html>
 <head>

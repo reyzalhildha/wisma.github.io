@@ -1,25 +1,9 @@
-<?php
-include 'functions.php';
-	if ( isset($_POST['login']) ) {
-		global $conn;
-		$username = $_POST["username"];
-		$password = $_POST["password"];
-		
-		$result = mysqli_query($conn, "SELECT * FROM user WHERE username='$username'");
-		
-		//cek username
-		if(mysqli_num_rows($result) === 1){
-			//Cek Password
-			$row =  mysqli_fetch_assoc($result);
-			if(password_verify( $password, $row["password"]) ) {
-				echo "<script> alert('Berhasil Login'); </script>";
-				header("Location: index.php");
-			}
-		}else {
-			echo "<script> alert('Gagal Login'); </script>";
+<?php 
+	if(isset($_GET['pesan'])){
+		if($_GET['pesan']=="gagal"){
+			echo "<div class='alert'>Username dan Password tidak sesuai !</div>";
 		}
 	}
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +37,7 @@ include 'functions.php';
 				<div class="login100-pic js-tilt" data-tilt>
 					<img src="image/ppsdm-logo.png" alt="IMG">
 				</div>				
-				<form class="login100-form validate-form" method="POST">
+				<form class="login100-form validate-form" action="cek_login.php" method="POST">
 					<span class="login100-form-title">
 					    Login
 					</span>
